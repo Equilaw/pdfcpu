@@ -662,11 +662,11 @@ func parsePagesDict(ctx *Context, pagesDict Dict, pageNumber int) (int, error) {
 	// Iterate over page tree.
 	o, found := pagesDict.Find("Kids")
 	if !found {
-		return pageNumber, errors.New("pdfcpu: corrupt \"Kids\" entry")
+		return pageNumber, nil
 	}
 	kids, err := ctx.DereferenceArray(o)
 	if err != nil || kids == nil {
-		return pageNumber, errors.New("pdfcpu: corrupt \"Kids\" entry")
+		return pageNumber, nil
 	}
 
 	for _, v := range kids {
