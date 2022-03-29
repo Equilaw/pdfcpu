@@ -494,6 +494,9 @@ func validateCSArray(xRefTable *pdf.XRefTable, a pdf.Array, csName string) error
 	case pdf.DeviceNCS:
 		return validateDeviceNColorSpace(xRefTable, a, pdf.V13)
 
+	case pdf.DeviceRGBCS:
+		return nil
+
 	default:
 		return errors.Errorf("validateColorSpaceArray: undefined color space: %s\n", csName)
 	}
@@ -555,6 +558,9 @@ func validateColorSpaceArray(xRefTable *pdf.XRefTable, a pdf.Array, excludePatte
 
 	case pdf.DeviceNCS:
 		err = validateDeviceNColorSpace(xRefTable, a, pdf.V13)
+
+	case pdf.DeviceRGBCS:
+		err = nil
 
 	default:
 		err = errors.Errorf("pdfcpu: validateColorSpaceArray: undefined color space: %s\n", name)
