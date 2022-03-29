@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/pdfcpu/pdfcpu/pkg/log"
+	"github.com/Equilaw/pdfcpu/pkg/log"
 )
 
 // Image is a Reader representing an image resource.

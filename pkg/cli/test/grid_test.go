@@ -20,9 +20,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pdfcpu/pdfcpu/pkg/api"
-	"github.com/pdfcpu/pdfcpu/pkg/cli"
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu"
+	"github.com/Equilaw/pdfcpu/pkg/api"
+	"github.com/Equilaw/pdfcpu/pkg/cli"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu"
 )
 
 func testGrid(t *testing.T, msg string, inFiles []string, outFile string, selectedPages []string, desc string, rows, cols int, isImg bool) {

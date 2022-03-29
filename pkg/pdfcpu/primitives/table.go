@@ -21,7 +21,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu"
 	"github.com/pkg/errors"
 )
 

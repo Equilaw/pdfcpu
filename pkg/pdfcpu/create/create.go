@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu"
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/primitives"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu/primitives"
 	"github.com/pkg/errors"
 )
 

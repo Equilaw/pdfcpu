@@ -21,8 +21,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/pdfcpu/pdfcpu/pkg/log"
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu"
+	"github.com/Equilaw/pdfcpu/pkg/log"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu"
 )
 
 // PDFNUpConfig returns an NUp configuration for Nup-ing PDF files.

@@ -24,7 +24,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pdfcpu/pdfcpu/pkg/log"
+	"github.com/Equilaw/pdfcpu/pkg/log"
 )
 
 // Context represents an environment for processing PDF files.

@@ -26,9 +26,9 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Equilaw/pdfcpu/pkg/filter"
+	"github.com/Equilaw/pdfcpu/pkg/log"
 	"github.com/hhrutter/tiff"
-	"github.com/pdfcpu/pdfcpu/pkg/filter"
-	"github.com/pdfcpu/pdfcpu/pkg/log"
 	"github.com/pkg/errors"
 )
 

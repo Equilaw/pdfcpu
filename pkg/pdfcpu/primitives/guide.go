@@ -19,7 +19,7 @@ package primitives
 import (
 	"io"
 
-	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu"
+	"github.com/Equilaw/pdfcpu/pkg/pdfcpu"
 )
 
 // Guide represents horizontal and vertical lines at (x,y) for layout purposes.
