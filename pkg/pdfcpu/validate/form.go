@@ -420,76 +420,78 @@ func validateAcroFormEntryDR(xRefTable *pdf.XRefTable, d pdf.Dict) error {
 }
 
 func validateAcroForm(xRefTable *pdf.XRefTable, rootDict pdf.Dict, required bool, sinceVersion pdf.Version) error {
+	// For our use case we don't want to validate an Acro Form
+	return nil
 
-	// => 12.7.2 Interactive Form Dictionary
+	// // => 12.7.2 Interactive Form Dictionary
 
-	d, err := validateDictEntry(xRefTable, rootDict, "rootDict", "AcroForm", OPTIONAL, sinceVersion, nil)
-	if err != nil || d == nil {
-		return err
-	}
+	// d, err := validateDictEntry(xRefTable, rootDict, "rootDict", "AcroForm", OPTIONAL, sinceVersion, nil)
+	// if err != nil || d == nil {
+	// 	return err
+	// }
 
-	xRefTable.AcroForm = d
+	// xRefTable.AcroForm = d
 
-	// Version check
-	err = xRefTable.ValidateVersion("AcroForm", sinceVersion)
-	if err != nil {
-		return err
-	}
+	// // Version check
+	// err = xRefTable.ValidateVersion("AcroForm", sinceVersion)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// Fields, required, array of indirect references
-	o, ok := d.Find("Fields")
-	if !ok {
-		return errors.New("pdfcpu: validateAcroForm: missing required entry \"Fields\"")
-	}
+	// // Fields, required, array of indirect references
+	// o, ok := d.Find("Fields")
+	// if !ok {
+	// 	return errors.New("pdfcpu: validateAcroForm: missing required entry \"Fields\"")
+	// }
 
-	err = validateAcroFormFields(xRefTable, o)
-	if err != nil {
-		return err
-	}
+	// err = validateAcroFormFields(xRefTable, o)
+	// if err != nil {
+	// 	return err
+	// }
 
-	dictName := "acroFormDict"
+	// dictName := "acroFormDict"
 
-	// NeedAppearances: optional, boolean
-	_, err = validateBooleanEntry(xRefTable, d, dictName, "NeedAppearances", OPTIONAL, pdf.V10, nil)
-	if err != nil {
-		return err
-	}
+	// // NeedAppearances: optional, boolean
+	// _, err = validateBooleanEntry(xRefTable, d, dictName, "NeedAppearances", OPTIONAL, pdf.V10, nil)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// SigFlags: optional, since 1.3, integer
-	sf, err := validateIntegerEntry(xRefTable, d, dictName, "SigFlags", OPTIONAL, pdf.V13, nil)
-	if err != nil {
-		return err
-	}
-	if sf != nil {
-		i := sf.Value()
-		xRefTable.SignatureExist = i&1 > 0
-		xRefTable.AppendOnly = i&2 > 0
-	}
+	// // SigFlags: optional, since 1.3, integer
+	// sf, err := validateIntegerEntry(xRefTable, d, dictName, "SigFlags", OPTIONAL, pdf.V13, nil)
+	// if err != nil {
+	// 	return err
+	// }
+	// if sf != nil {
+	// 	i := sf.Value()
+	// 	xRefTable.SignatureExist = i&1 > 0
+	// 	xRefTable.AppendOnly = i&2 > 0
+	// }
 
-	// CO: arra
-	err = validateAcroFormEntryCO(xRefTable, d, pdf.V13)
-	if err != nil {
-		return err
-	}
+	// // CO: arra
+	// err = validateAcroFormEntryCO(xRefTable, d, pdf.V13)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// DR, optional, resource dict
-	err = validateAcroFormEntryDR(xRefTable, d)
-	if err != nil {
-		return err
-	}
+	// // DR, optional, resource dict
+	// err = validateAcroFormEntryDR(xRefTable, d)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// DA: optional, string
-	_, err = validateStringEntry(xRefTable, d, dictName, "DA", OPTIONAL, pdf.V10, nil)
-	if err != nil {
-		return err
-	}
+	// // DA: optional, string
+	// _, err = validateStringEntry(xRefTable, d, dictName, "DA", OPTIONAL, pdf.V10, nil)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// Q: optional, integer
-	_, err = validateIntegerEntry(xRefTable, d, dictName, "Q", OPTIONAL, pdf.V10, validateQ)
-	if err != nil {
-		return err
-	}
+	// // Q: optional, integer
+	// _, err = validateIntegerEntry(xRefTable, d, dictName, "Q", OPTIONAL, pdf.V10, validateQ)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// XFA: optional, since 1.5, stream or array
-	return validateAcroFormXFA(xRefTable, d, sinceVersion)
+	// // XFA: optional, since 1.5, stream or array
+	// return validateAcroFormXFA(xRefTable, d, sinceVersion)
 }
